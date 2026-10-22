@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kitsu Hub – Anime discover karo, free official episodes dekho</title>
+<meta name="description" content="Trending anime, airing schedule, genres aur official YouTube channels pe free Hindi dub episodes – ek jagah.">
+<meta name="theme-color" content="#15112B">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#15112B;--bg2:#1E1840;--card:#251E50;--ink:#F4F0FF;--mute:#A79FCB;--pink:#FF5C8A;--cyan:#66E3E8;--line:#372E6B;--r:14px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.55 Figtree,system-ui,sans-serif;padding-bottom:calc(72px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent}
+h1,h2,h3,.logo{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;line-height:1.05}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header{position:sticky;top:0;z-index:20;background:rgba(21,17,43,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.bar{display:flex;align-items:center;gap:14px;height:56px}
+.logo{font-size:24px;font-weight:800}.logo i{font-style:normal;color:var(--pink)}
+nav.top{display:none;gap:4px;margin-left:12px}
+nav button{padding:8px 14px;border-radius:99px;color:var(--mute);font-weight:600}
+nav button.on{background:var(--card);color:var(--ink)}
+.sbox{margin-left:auto;display:flex;background:var(--card);border-radius:99px;padding:0 14px;align-items:center;gap:8px;width:min(260px,52vw)}
+.sbox input{background:none;border:0;color:var(--ink);font:inherit;padding:9px 0;width:100%;outline:0}
+.sbox input::placeholder{color:var(--mute)}
+nav.bot{position:fixed;bottom:0;left:0;right:0;z-index:20;display:flex;justify-content:space-around;background:var(--bg2);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+nav.bot button{flex:1;padding:6px 2px;font-size:12px;border-radius:10px;display:grid;gap:2px;justify-items:center}
+nav.bot button span{font-size:19px;line-height:1}
+nav.bot button.on{color:var(--pink);background:none}
+@media(min-width:760px){nav.top{display:flex}nav.bot{display:none}body{padding-bottom:40px}}
+/* hero */
+.hero{position:relative;min-height:min(70vh,520px);display:flex;align-items:flex-end;overflow:hidden;background-size:cover;background-position:center 20%;transition:background-image .4s}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 4%,rgba(21,17,43,.55) 55%,rgba(21,17,43,.25)),linear-gradient(90deg,rgba(21,17,43,.8),transparent 70%)}
+.hero .wrap{position:relative;padding-bottom:28px;width:100%}
+.hero h1{font-size:clamp(34px,7vw,66px);max-width:14ch;font-weight:800;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;color:var(--mute);font-weight:500}
+.pill{background:rgba(255,255,255,.1);border-radius:99px;padding:2px 10px;font-size:13px}
+.pill.sc{background:var(--pink);color:#fff;font-weight:700}
+.hero p{max-width:56ch;color:#D8D2F0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{padding:11px 20px;border-radius:99px;font-weight:700}
+.btn.p{background:var(--pink);color:#fff}.btn.g{background:rgba(255,255,255,.14)}
+.dots{display:flex;gap:6px;margin-top:18px}.dots button{width:22px;height:4px;border-radius:4px;background:rgba(255,255,255,.28)}.dots button.on{background:var(--cyan)}
+/* rows & cards */
+section.blk{margin-top:34px}
+.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.sh h2{font-size:24px;font-weight:700}.sh small{color:var(--mute)}
+.row{display:grid;grid-auto-flow:column;grid-auto-columns:128px;gap:12px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:8px;scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:14px}
+@media(min-width:760px){.row{grid-auto-columns:160px}.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
+.c{scroll-snap-align:start;text-align:left;display:block}
+.c .im{position:relative;aspect-ratio:2/3;border-radius:var(--r);overflow:hidden;background:var(--card)}
+.c img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.c:hover img{transform:scale(1.04)}
+.c .sc{position:absolute;top:8px;left:8px;background:rgba(21,17,43,.85);color:var(--cyan);font-size:12px;font-weight:700;padding:1px 8px;border-radius:99px}
+.c .ep{position:absolute;bottom:8px;right:8px;background:var(--pink);font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px}
+.c b{display:block;margin-top:8px;font-weight:600;font-size:14px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.c small{color:var(--mute)}
+.top10 .c .im:after{content:attr(data-n);position:absolute;left:6px;bottom:-12px;font:800 56px/1 'Bricolage Grotesque';color:var(--ink);-webkit-text-stroke:2px var(--pink);opacity:.95;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+/* chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chip{padding:7px 14px;border-radius:99px;background:var(--card);color:var(--mute);font-weight:600;font-size:14px}
+.chip.on{background:var(--cyan);color:#10222B}
+/* schedule */
+.days{display:flex;gap:8px;overflow-x:auto;margin:14px 0;scrollbar-width:none}
+.sch{display:grid;gap:10px}
+.si{display:flex;gap:12px;background:var(--card);border-radius:var(--r);padding:10px;align-items:center;text-align:left;width:100%}
+.si img{width:52px;height:74px;object-fit:cover;border-radius:8px}
+.si time{font:700 20px 'Bricolage Grotesque';color:var(--cyan);min-width:64px}
+.si b{display:block;line-height:1.25}.si small{color:var(--mute)}
+@media(min-width:760px){.sch{grid-template-columns:1fr 1fr}}
+/* free */
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.fc{background:var(--card);border-radius:var(--r);overflow:hidden;text-align:left;display:block}
+.fc .th{position:relative;aspect-ratio:16/9;background:#000}.fc img{width:100%;height:100%;object-fit:cover}
+.fc .th:after{content:"▶";position:absolute;inset:0;display:grid;place-items:center;font-size:34px;color:#fff;background:rgba(0,0,0,.25)}
+.fc div.b{padding:10px 12px 12px}.fc b{display:block}.fc small{color:var(--mute)}
+.note{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;color:var(--mute);margin:14px 0}
+.empty{padding:40px 10px;text-align:center;color:var(--mute)}
+/* modal */
+.md{position:fixed;inset:0;z-index:50;background:rgba(8,6,20,.78);display:none;overflow-y:auto;overscroll-behavior:contain}
+.md.on{display:block}
+.sheet{max-width:860px;margin:0 auto;background:var(--bg);min-height:100%;position:relative}
+@media(min-width:860px){.sheet{margin:30px auto;border-radius:20px;min-height:0;overflow:hidden}}
+.x{position:absolute;top:calc(10px + env(safe-area-inset-top));right:12px;z-index:3;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.6);font-size:18px}
+.ban{height:220px;background-size:cover;background-position:center;position:relative}
+.ban:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),transparent)}
+.dt{display:flex;gap:16px;padding:0 18px;margin-top:-80px;position:relative;z-index:1}
+.dt img{width:110px;border-radius:12px;align-self:flex-start;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.dt h2{font-size:clamp(24px,5vw,36px);margin-top:84px;font-weight:800}
+.bd{padding:6px 18px 28px}.bd p{color:#D8D2F0;margin:12px 0;max-width:70ch}
+.vid{aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:#000;margin:14px 0}.vid iframe{width:100%;height:100%;border:0}
+.bd h3{font-size:19px;margin:20px 0 10px}
+.cm{margin:12px 0}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#" data-go="home">KITSU<i>HUB</i></a>
+  <nav class="top" id="nt"></nav>
+  <label class="sbox" aria-label="Anime search"><span>🔍</span><input id="q" type="search" placeholder="Anime dhundo…" autocomplete="off"></label>
+</div></header>
+<main id="app"></main>
+<nav class="bot" id="nb"></nav>
+<div class="md" id="md" role="dialog" aria-modal="true"><div class="sheet" id="sheet"></div></div>
+
+<script>
+const FREE = [{"slug": "jujutsu-kaisen-hindi-dub", "vid": "1Id_f3GDlus", "eps": 47, "title": "Jujutsu Kaisen (Hindi Dub)", "channel": "Ani-One India", "genre": "Action, Dark Fantasy, Supernatural · Hindi"}, {"slug": "attack-on-titan-hindi-dub", "vid": "QjJ4iPOQF_Y", "eps": 41, "title": "Attack on Titan (Hindi Dub)", "channel": "Muse India", "genre": "Action, Dark Fantasy · Hindi"}, {"slug": "hunter-x-hunter-hindi-dub", "vid": "9GlbdQz_bKc", "eps": 100, "title": "Hunter x Hunter (Hindi Dub)", "channel": "Muse India", "genre": "Action, Adventure, Fantasy · Hindi"}, {"slug": "one-punch-man-hindi-dub", "vid": "sl8LwAqFOvo", "eps": 36, "title": "One-Punch Man (Hindi Dub)", "channel": "Muse India", "genre": "Action, Comedy, Superhero · Hindi"}, {"slug": "blue-lock-hindi-dub", "vid": "-7AD70jdntE", "eps": 38, "title": "Blue Lock (Hindi Dub)", "channel": "Ani-One India", "genre": "Sports, Football, Drama · Hindi"}, {"slug": "re-zero-starting-life-in-another-world-hindi-dub", "vid": "fLsFoF423Ds", "eps": 70, "title": "Re:ZERO -Starting Life in Another World- (Hindi Dub)", "channel": "Muse India", "genre": "Fantasy, Isekai, Drama · Hindi"}, {"slug": "classroom-of-the-elite-hindi-dub", "vid": "S7LtjQvh6Qc", "eps": 38, "title": "Classroom of the Elite (Hindi Dub)", "channel": "Muse India", "genre": "Drama, Psychological, School · Hindi"}, {"slug": "jojo-s-bizarre-adventure-stardust-crusaders-hindi-dub", "vid": "1Wo_PRie640", "eps": 48, "title": "JoJo's Bizarre Adventure: Stardust Crusaders (Hindi Dub)", "channel": "Muse India", "genre": "Action, Adventure, Supernatural · Hindi"}, {"slug": "jojo-s-bizarre-adventure-part-1-hindi-dub", "vid": "QLFA1MkDkww", "eps": 26, "title": "JoJo's Bizarre Adventure Part 1 (Hindi Dub)", "channel": "Muse India", "genre": "Action, Adventure, Supernatural · Hindi"}, {"slug": "mob-psycho-100-hindi-dub", "vid": "eZ_rS0vj2Hg", "eps": 38, "title": "Mob Psycho 100 (Hindi Dub)", "channel": "Muse India", "genre": "Action, Comedy, Supernatural · Hindi"}, {"slug": "overlord-hindi-dub", "vid": "xA69sCrsyto", "eps": 52, "title": "Overlord (Hindi Dub)", "channel": "Ani-One India", "genre": "Fantasy, Isekai, Action · Hindi"}, {"slug": "cells-at-work-hindi-dub", "vid": "pQP8SjxORVA", "eps": 14, "title": "Cells at Work! (Hindi Dub)", "channel": "Muse India", "genre": "Comedy, Educational · Hindi"}, {"slug": "welcome-to-demon-school-iruma-kun-hindi-dub", "vid": "uUND8uJdoK8", "eps": 65, "title": "Welcome to Demon School! Iruma-kun (Hindi Dub)", "channel": "Muse India", "genre": "Comedy, Fantasy, School · Hindi"}, {"slug": "skeleton-knight-in-another-world-hindi-dub", "vid": "XoAKeIR2bdE", "eps": 12, "title": "Skeleton Knight in Another World (Hindi Dub)", "channel": "Muse India", "genre": "Fantasy, Action, Isekai · Hindi"}, {"slug": "i-was-reincarnated-as-the-7th-prince-hindi-dub", "vid": "4k1YC2z5VOw", "eps": 24, "title": "I Was Reincarnated as the 7th Prince (Hindi Dub)", "channel": "Muse India", "genre": "Fantasy, Magic, Isekai · Hindi"}, {"slug": "i-parry-everything-hindi-dub", "vid": "y7g4yMSLlbc", "eps": 12, "title": "I Parry Everything (Hindi Dub)", "channel": "Muse India", "genre": "Fantasy, Action, Comedy · Hindi"}, {"slug": "hindi-dub-tokyo-revengers", "vid": "Td2EU01WGgs", "eps": 18, "title": "[Hindi Dub] Tokyo Revengers", "channel": "Muse Hindi Dub</small></span></a><a class=\"fr-card\" href=\"/free/hindi-dub-the-god-of-high-school-muse-in/\" data-slug=\"hindi-dub-the-god-of-high-school-muse-in\">\n    <span class=\"fr-th\"><img src=\"https://i.ytimg.com/vi/jSeXcj5y3Ao/hqdefault.jpg\" alt=\"\" loading=\"lazy\"><b class=\"fr-play\">▶</b><b class=\"fr-brand\">ANI<i>MORA</i></b><i class=\"fr-n\">13 episodes</i><i class=\"fr-cw\" hidden>Continue</i></span>\n    <span class=\"fr-b\"><em>[Hindi Dub] THE GOD OF HIGH SCHOOL | Muse IN</em><small>Muse India</small></span></a><a class=\"fr-card\" href=\"/free/suzume-the-movie-full-movie-hindi-dubbed-4k-resolution-new-anime-movie-suzume-an/\" data-slug=\"suzume-the-movie-full-movie-hindi-dubbed-4k-resolution-new-anime-movie-suzume-an\">\n    <span class=\"fr-th\"><img src=\"https://i.ytimg.com/vi/glubM5ITcIw/hqdefault.jpg\" alt=\"\" loading=\"lazy\"><b class=\"fr-play\">▶</b><b class=\"fr-brand\">ANI<i>MORA</i></b><i class=\"fr-n\">1 episode</i><i class=\"fr-cw\" hidden>Continue</i></span>\n    <span class=\"fr-b\"><em>Suzume | The Movie | Full Movie Hindi Dubbed | 4k Resolution | New Anime Movie | #suzume #anime #cat</em><small>Transform Gaming</small></span></a><a class=\"fr-card\" href=\"/free/i-have-a-crush-at-work-hindi-dub/\" data-slug=\"i-have-a-crush-at-work-hindi-dub\">\n    <span class=\"fr-th\"><img src=\"https://i.ytimg.com/vi/e4GEqRCVKYQ/hqdefault.jpg\" alt=\"\" loading=\"lazy\"><b class=\"fr-play\">▶</b><b class=\"fr-brand\">ANI<i>MORA</i></b><i class=\"fr-n\">12 episodes</i><i class=\"fr-cw\" hidden>Continue</i></span>\n    <span class=\"fr-b\"><em>I Have a Crush at Work (Hindi Dub)</em><small>Ani-One India", "genre": "Romance, Comedy, Office · Hindi"}, {"slug": "mashin-creator-wataru-hindi-dub", "vid": "K1aazv6K7Kg", "eps": 25, "title": "Mashin Creator Wataru (Hindi Dub)", "channel": "Ani-One India", "genre": "Mecha, Adventure, Kids · Hindi"}, {"slug": "sasaki-and-miyano-hindi-dub", "vid": "qLUH7vWfMAQ", "eps": 13, "title": "Sasaki and Miyano (Hindi Dub)", "channel": "Ani-One India", "genre": "Romance, Comedy, School · Hindi"}];
+const TABS = [["home","🏠","Home"],["browse","🧭","Browse"],["schedule","🗓️","Schedule"],["free","▶️","Free"],["list","🔖","My List"]];
+const GENRES = ["Action","Adventure","Comedy","Drama","Fantasy","Horror","Mahou Shoujo","Mecha","Music","Mystery","Psychological","Romance","Sci-Fi","Slice of Life","Sports","Supernatural","Thriller"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = { get(k,d){try{const v=JSON.parse(localStorage.getItem("kh_"+k));return v==null?d:v}catch{return d}}, set(k,v){try{localStorage.setItem("kh_"+k,JSON.stringify(v))}catch{}} };
+
+/* ---------- AniList ---------- */
+const F = `id title{romaji english} coverImage{extraLarge color} bannerImage description(asHtml:false) genres averageScore episodes duration format status seasonYear isAdult nextAiringEpisode{episode airingAt} trailer{id site}`;
+const cache = new Map();
+async function gql(query, variables={}) {
+  const key = query + JSON.stringify(variables);
+  if (cache.has(key)) return cache.get(key);
+  const r = await fetch("https://graphql.anilist.co", {method:"POST", headers:{"Content-Type":"application/json",Accept:"application/json"}, body:JSON.stringify({query,variables})});
+  if (!r.ok) throw new Error(r.status === 429 ? "Bahut requests ho gayi – 1 minute baad try karo." : "AniList se data nahi aaya (" + r.status + ").");
+  const j = await r.json(); if (j.errors) throw new Error(j.errors[0].message);
+  cache.set(key, j.data); return j.data;
+}
+const page = (extra, n=18) => gql(`query($p:Int,$g:String,$s:String,$season:MediaSeason,$y:Int){Page(page:$p,perPage:${n}){media(type:ANIME,isAdult:false,${extra}){${F}}}}`, {p:1});
+const season = () => { const d=new Date(),m=d.getMonth(); return {season:["WINTER","SPRING","SUMMER","FALL"][Math.floor(m/3)], y:d.getFullYear()}; };
+
+/* ---------- helpers ---------- */
+const name = m => m.title.english || m.title.romaji;
+const clean = t => esc((t||"Synopsis available nahi hai.").replace(/<br\s*\/?>/gi," ").replace(/<[^>]+>/g,""));
+const score = m => m.averageScore ? (m.averageScore/10).toFixed(1) : "–";
+function card(m, n) {
+  return `<button class="c" data-id="${m.id}"><div class="im" ${n?`data-n="${n}"`:""}>
+    <img loading="lazy" src="${esc(m.coverImage.extraLarge)}" alt="${esc(name(m))}">
+    ${m.averageScore?`<span class="sc">★ ${score(m)}</span>`:""}
+    ${m.nextAiringEpisode?`<span class="ep">EP ${m.nextAiringEpisode.episode}</span>`:""}</div>
+    <b>${esc(name(m))}</b><small>${esc(m.format||"")} ${m.seasonYear||""}</small></button>`;
+}
+const row = (title, list, cls="") => `<section class="blk ${cls}"><div class="sh"><h2>${title}</h2></div><div class="row">${list.map((m,i)=>card(m,cls?i+1:0)).join("")}</div></section>`;
+const loading = () => `<div class="wrap empty">Load ho raha hai…</div>`;
+const errBox = (e, retry) => `<div class="wrap empty"><p>${esc(e.message)}</p><div class="btns" style="justify-content:center"><button class="btn p" data-retry="${retry}">Dobara try karo</button></div></div>`;
+const list = () => store.get("list", []);
+const toggleList = m => { let l = list(); const i = l.findIndex(x=>x.id===m.id); i>=0 ? l.splice(i,1) : l.unshift({id:m.id,t:name(m),img:m.coverImage.extraLarge,s:m.averageScore,f:m.format,y:m.seasonYear}); store.set("list", l); return i<0; };
+
+/* ---------- views ---------- */
+let heroTimer;
+async function home() {
+  $("#app").innerHTML = loading();
+  try {
+    const sn = season();
+    const [tr, pop, top, ssn] = await Promise.all([
+      page("sort:TRENDING_DESC", 12), page("sort:POPULARITY_DESC", 18),
+      page("sort:SCORE_DESC", 10), gql(`query($season:MediaSeason,$y:Int){Page(perPage:18){media(type:ANIME,isAdult:false,season:$season,seasonYear:$y,sort:POPULARITY_DESC){${F}}}}`, {season:sn.season,y:sn.y})
+    ]);
+    const heroes = tr.Page.media.filter(m=>m.bannerImage).slice(0,6);
+    const recent = store.get("recent", []);
+    $("#app").innerHTML = `<div class="hero" id="hero"><div class="wrap" id="hc"></div></div><div class="wrap">
+      ${recent.length?`<section class="blk"><div class="sh"><h2>Dobara dekho</h2><small>aapne haal hi me kholay</small></div><div class="row">${recent.map(r=>card({id:r.id,title:{romaji:r.t},coverImage:{extraLarge:r.img},averageScore:r.s,format:r.f,seasonYear:r.y})).join("")}</div></section>`:""}
+      ${row("Trending abhi", tr.Page.media)}
+      ${row("Top 10 – sabse zyada rated", top.Page.media, "top10")}
+      ${row(`${sn.season[0]+sn.season.slice(1).toLowerCase()} ${sn.y} season`, ssn.Page.media)}
+      ${row("All-time popular", pop.Page.media)}
+      <section class="blk"><div class="sh"><h2>Free official episodes</h2><small>YouTube pe, legal</small></div><div class="fgrid">${FREE.slice(0,4).map(freeCard).join("")}</div></section></div>`;
+    let i = 0;
+    const paint = () => {
+      const m = heroes[i];
+      $("#hero").style.backgroundImage = `url(${m.bannerImage})`;
+      $("#hc").innerHTML = `<h1>${esc(name(m))}</h1>
+        <div class="meta"><span class="pill sc">★ ${score(m)}</span><span class="pill">${esc(m.format||"")}</span><span class="pill">${m.episodes?m.episodes+" ep":"Airing"}</span>${m.genres.slice(0,3).map(g=>`<span class="pill">${esc(g)}</span>`).join("")}</div>
+        <p>${clean(m.description)}</p>
+        <div class="btns"><button class="btn p" data-id="${m.id}">Details dekho</button><button class="btn g" data-save="${m.id}">${list().some(x=>x.id===m.id)?"✓ List me hai":"+ My List"}</button></div>
+        <div class="dots">${heroes.map((_,k)=>`<button class="${k===i?"on":""}" data-h="${k}" aria-label="Slide ${k+1}"></button>`).join("")}</div>`;
+    };
+    paint(); clearInterval(heroTimer);
+    heroTimer = setInterval(()=>{ if(location.hash!=="#/home"&&location.hash) return clearInterval(heroTimer); i=(i+1)%heroes.length; paint(); }, 7000);
+    $("#hc").onclick = e => { const h=e.target.dataset.h; if(h!=null){ i=+h; paint(); clearInterval(heroTimer);} };
+    window._heroes = heroes;
+  } catch(e){ $("#app").innerHTML = errBox(e,"home"); }
+}
+
+let bg = "", bq = "";
+async function browse() {
+  $("#app").innerHTML = `<div class="wrap"><div class="chips" id="gc">${["Sab",...GENRES].map(g=>`<button class="chip ${(g==="Sab"?"":g)===bg?"on":""}" data-g="${g==="Sab"?"":g}">${g}</button>`).join("")}</div><div id="res">${loading()}</div></div>`;
+  try {
+    const cond = bq ? `search:"${bq.replace(/["\\]/g,"")}",sort:SEARCH_MATCH` : `${bg?`genre:"${bg}",`:""}sort:POPULARITY_DESC`;
+    const d = await page(cond, 36);
+    const l = d.Page.media;
+    $("#res").innerHTML = (bq?`<div class="sh"><h2>"${esc(bq)}" ke results</h2></div>`:"") + (l.length ? `<div class="grid">${l.map(m=>card(m)).join("")}</div>` : `<div class="empty">Kuch nahi mila. Spelling badal ke dekho ya genre chuno.</div>`);
+  } catch(e){ $("#res").innerHTML = errBox(e,"browse"); }
+}
+
+let sd = new Date().getDay();
+async function schedule() {
+  const names = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  $("#app").innerHTML = `<div class="wrap"><div class="sh" style="margin-top:20px"><h2>Airing schedule</h2><small>aapke local time me</small></div><div class="days" id="dy"></div><div class="sch" id="sl">${loading()}</div></div>`;
+  try {
+    const now = Math.floor(Date.now()/1000);
+    const d = await gql(`query($a:Int,$b:Int){Page(perPage:50){airingSchedules(airingAt_greater:$a,airingAt_lesser:$b,sort:TIME){airingAt episode media{${F}}}}}`, {a:now-3600, b:now+7*86400});
+    const items = d.Page.airingSchedules.filter(x=>!x.media.isAdult);
+    const draw = () => {
+      $("#dy").innerHTML = names.map((n,i)=>`<button class="chip ${i===sd?"on":""}" data-d="${i}">${n}</button>`).join("");
+      const day = items.filter(x=>new Date(x.airingAt*1000).getDay()===sd);
+      $("#sl").innerHTML = day.length ? day.map(x=>`<button class="si" data-id="${x.media.id}"><img loading="lazy" src="${esc(x.media.coverImage.extraLarge)}" alt=""><time>${new Date(x.airingAt*1000).toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})}</time><span><b>${esc(name(x.media))}</b><small>Episode ${x.episode}</small></span></button>`).join("") : `<div class="empty">Is din ka schedule is list me nahi hai (sirf agle 7 din ke top 50 episodes dikhte hain).</div>`;
+    };
+    draw(); $("#dy").onclick = e => { if(e.target.dataset.d!=null){ sd=+e.target.dataset.d; draw(); } };
+  } catch(e){ $("#sl").innerHTML = errBox(e,"schedule"); }
+}
+
+function freeCard(f){ return `<button class="fc" data-f="${esc(f.slug)}"><div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${f.vid}/hqdefault.jpg" alt=""></div><div class="b"><b>${esc(f.title)}</b><small>${esc(f.channel)} · ${f.eps} episodes</small><br><small>${esc(f.genre)}</small></div></button>`; }
+function free() {
+  $("#app").innerHTML = `<div class="wrap"><div class="sh" style="margin-top:20px"><h2>Free official anime</h2></div><p class="note">Ye episodes anime companies ke apne official YouTube channels pe chalte hain (Ani-One India, Muse India). Yahan sirf ek jagah laaye gaye hain – video YouTube ke player se chalta hai.</p><div class="fgrid">${FREE.map(freeCard).join("")}</div></div>`;
+}
+function myList() {
+  const l = list();
+  $("#app").innerHTML = `<div class="wrap"><div class="sh" style="margin-top:20px"><h2>My List</h2><small>${l.length} anime</small></div>${l.length?`<div class="grid">${l.map(r=>card({id:r.id,title:{romaji:r.t},coverImage:{extraLarge:r.img},averageScore:r.s,format:r.f,seasonYear:r.y})).join("")}</div>`:`<div class="empty">List khaali hai. Kisi anime ke details me "+ My List" dabao.</div>`}</div>`;
+}
+
+/* ---------- modal ---------- */
+const md = $("#md"), sheet = $("#sheet");
+const closeM = () => { md.classList.remove("on"); sheet.innerHTML=""; document.body.style.overflow=""; };
+async function openAnime(id) {
+  md.classList.add("on"); document.body.style.overflow="hidden"; md.scrollTop=0;
+  sheet.innerHTML = `<button class="x" data-x aria-label="Band karo">✕</button><div class="empty">Load ho raha hai…</div>`;
+  try {
+    const d = await gql(`query($id:Int){Media(id:$id,type:ANIME){${F} studios(isMain:true){nodes{name}} recommendations(perPage:10,sort:RATING_DESC){nodes{mediaRecommendation{${F}}}}}}`, {id});
+    const m = d.Media, inList = list().some(x=>x.id===m.id);
+    let rc = store.get("recent", []).filter(r=>r.id!==m.id); rc.unshift({id:m.id,t:name(m),img:m.coverImage.extraLarge,s:m.averageScore,f:m.format,y:m.seasonYear}); store.set("recent", rc.slice(0,12));
+    const rec = m.recommendations.nodes.map(n=>n.mediaRecommendation).filter(x=>x&&!x.isAdult);
+    const fm = FREE.find(f=>name(m).toLowerCase().includes(f.title.replace(/\s*\(.*\)/,"").toLowerCase()) || f.title.toLowerCase().includes((m.title.romaji||"").toLowerCase()));
+    sheet.innerHTML = `<button class="x" data-x aria-label="Band karo">✕</button>
+      <div class="ban" style="background-image:url(${esc(m.bannerImage||m.coverImage.extraLarge)})"></div>
+      <div class="dt"><img src="${esc(m.coverImage.extraLarge)}" alt=""><h2>${esc(name(m))}</h2></div>
+      <div class="bd"><div class="meta"><span class="pill sc">★ ${score(m)}</span><span class="pill">${esc(m.format||"")}</span><span class="pill">${m.episodes?m.episodes+" ep":"Ongoing"}</span>${m.duration?`<span class="pill">${m.duration} min</span>`:""}<span class="pill">${esc((m.status||"").replace(/_/g," ").toLowerCase())}</span>${m.studios.nodes[0]?`<span class="pill">${esc(m.studios.nodes[0].name)}</span>`:""}</div>
+      <div class="meta">${m.genres.map(g=>`<button class="chip" data-gen="${esc(g)}">${esc(g)}</button>`).join("")}</div>
+      ${m.nextAiringEpisode?`<p class="note">Episode ${m.nextAiringEpisode.episode} aayega: ${new Date(m.nextAiringEpisode.airingAt*1000).toLocaleString([], {weekday:"long",hour:"2-digit",minute:"2-digit",day:"numeric",month:"short"})}</p>`:""}
+      <div class="btns"><button class="btn p" data-save="${m.id}">${inList?"✓ List me hai":"+ My List"}</button>${fm?`<button class="btn g" data-f="${esc(fm.slug)}">▶ Free official episodes</button>`:`<a class="btn g" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/results?search_query=${encodeURIComponent(name(m)+" official hindi dub")}">YouTube pe official dhundo</a>`}</div>
+      <p>${clean(m.description)}</p>
+      ${m.trailer&&m.trailer.site==="youtube"?`<h3>Trailer</h3><div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/${esc(m.trailer.id)}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" title="Trailer"></iframe></div>`:""}
+      ${rec.length?`<h3>Ye bhi pasand aayenge</h3><div class="row">${rec.map(x=>card(x)).join("")}</div>`:""}</div>`;
+    sheet.dataset.cur = JSON.stringify({id:m.id,t:name(m),img:m.coverImage.extraLarge,s:m.averageScore,f:m.format,y:m.seasonYear});
+  } catch(e){ sheet.innerHTML = `<button class="x" data-x aria-label="Band karo">✕</button>${errBox(e,"modal:"+id)}`; }
+}
+function openFree(slug) {
+  const f = FREE.find(x=>x.slug===slug); if(!f) return;
+  md.classList.add("on"); document.body.style.overflow="hidden"; md.scrollTop=0;
+  const src = `https://www.youtube-nocookie.com/embed/${f.vid}?rel=0&playsinline=1&modestbranding=1`;
+  sheet.innerHTML = `<button class="x" data-x aria-label="Band karo">✕</button><div style="padding:56px 18px 28px"><h2 style="font-size:28px">${esc(f.title)}</h2><p class="meta">${esc(f.channel)} · ${f.eps} episodes · ${esc(f.genre)}</p>
+    <div class="vid"><iframe src="${src}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${esc(f.title)}"></iframe></div>
+    <p class="note">Ye video official channel ka hai. Saare ${f.eps} episodes ki playlist dekhne ke liye neeche dabao.</p>
+    <a class="btn p" style="display:inline-block" target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/results?search_query=${encodeURIComponent(f.title+" "+f.channel)}">YouTube pe saare episodes</a></div>`;
+}
+
+/* ---------- router & events ---------- */
+const VIEWS = {home, browse, schedule, free, list:myList};
+let cur = "home";
+function go(v) {
+  if (!VIEWS[v]) v = "home"; cur = v; if (location.hash !== "#/"+v) history.replaceState(null,"","#/"+v);
+  document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on", b.dataset.go===v));
+  closeM(); window.scrollTo(0,0); VIEWS[v]();
+}
+$("#nt").innerHTML = TABS.map(t=>`<button data-go="${t[0]}">${t[2]}</button>`).join("");
+$("#nb").innerHTML = TABS.map(t=>`<button data-go="${t[0]}"><span>${t[1]}</span>${t[2]}</button>`).join("");
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-go],[data-id],[data-x],[data-g],[data-save],[data-f],[data-gen],[data-retry]"); if(!t) return;
+  const d = t.dataset;
+  if (d.go) { e.preventDefault(); go(d.go); }
+  else if (d.x != null) closeM();
+  else if (d.id) openAnime(+d.id);
+  else if (d.f) openFree(d.f);
+  else if (d.g != null) { bg = d.g; bq = ""; $("#q").value=""; browse(); }
+  else if (d.gen) { bg = d.gen; bq = ""; $("#q").value=""; go("browse"); }
+  else if (d.save) {
+    const id = +d.save; let m = (window._heroes||[]).find(x=>x.id===id); let o = m ? {id:m.id,title:m.title,coverImage:m.coverImage,averageScore:m.averageScore,format:m.format,seasonYear:m.seasonYear} : null;
+    if (!o && sheet.dataset.cur) { const c = JSON.parse(sheet.dataset.cur); if (c.id===id) o = {id:c.id,title:{romaji:c.t},coverImage:{extraLarge:c.img},averageScore:c.s,format:c.f,seasonYear:c.y}; }
+    if (o) { if(!o.coverImage.extraLarge) o.coverImage={extraLarge:o.coverImage.extraLarge}; const on = toggleList(o); t.textContent = on ? "✓ List me hai" : "+ My List"; if (cur==="list") myList(); }
+  }
+  else if (d.retry) { d.retry.startsWith("modal:") ? openAnime(+d.retry.slice(6)) : VIEWS[d.retry](); }
+});
+document.addEventListener("keydown", e => { if (e.key==="Escape") closeM(); });
+md.addEventListener("click", e => { if (e.target===md) closeM(); });
+let qt; $("#q").addEventListener("input", e => { clearTimeout(qt); qt = setTimeout(()=>{ bq = e.target.value.trim(); bg=""; if (bq.length>1||!bq) { if (cur!=="browse") { cur="browse"; document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.go==="browse")); } browse(); } }, 450); });
+window.addEventListener("hashchange", () => { const v = location.hash.replace("#/",""); if (v!==cur) go(v); });
+go(location.hash.replace("#/","") || "home");
+</script>
+</body>
+</html>
