@@ -127,7 +127,7 @@ async function gql(query, variables={}) {
   const j = await r.json(); if (j.errors) throw new Error(j.errors[0].message);
   cache.set(key, j.data); return j.data;
 }
-const page = (extra, n=18) => gql(`query($p:Int,$g:String,$s:String,$season:MediaSeason,$y:Int){Page(page:$p,perPage:${n}){media(type:ANIME,isAdult:false,${extra}){${F}}}}`, {p:1});
+const page = (extra, n=18) => gql(`query($p:Int){Page(page:$p,perPage:${n}){media(type:ANIME,isAdult:false,${extra}){${F}}}}`, {p:1});
 const season = () => { const d=new Date(),m=d.getMonth(); return {season:["WINTER","SPRING","SUMMER","FALL"][Math.floor(m/3)], y:d.getFullYear()}; };
 
 /* ---------- helpers ---------- */
